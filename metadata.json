@@ -1,0 +1,6 @@
+{
+  "name": "KPSSLAB - Premium KPSS Deneme Sınavı",
+  "description": "120 soruluk gerçek ÖSYM müfredatına ve sınav kurallarına uygun, ayrıntılı çözümlü ve net analizli premium KPSS deneme simülatörü.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with gamification stats and progress tracking",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "totalExamsCompleted": { "type": "number" },
+        "highestP3Score": { "type": "number" },
+        "totalXp": { "type": "number" }
+      },
+      "required": ["uid", "email"]
+    },
+    "ExamResultRecord": {
+      "title": "ExamResultRecord",
+      "description": "Historical record of completed KPSS exam session",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "examTitle": { "type": "string" },
+        "totalScore": { "type": "number" },
+        "estimatedP3Score": { "type": "number" },
+        "totalCorrect": { "type": "number" },
+        "totalWrong": { "type": "number" },
+        "totalEmpty": { "type": "number" },
+        "totalNet": { "type": "number" },
+        "elapsedSeconds": { "type": "number" },
+        "completedAt": { "type": "string" },
+        "weakTopics": { "type": "array" },
+        "subjectStats": { "type": "object" },
+        "studyRecommendations": { "type": "array" }
+      },
+      "required": ["id", "userId", "totalNet", "estimatedP3Score", "completedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Private user profile and metadata"
+    },
+    "/users/{userId}/examResults/{resultId}": {
+      "schema": "ExamResultRecord",
+      "description": "Completed exam sessions and scoring history per user"
+    }
+  }
+}
